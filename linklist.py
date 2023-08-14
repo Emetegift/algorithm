@@ -144,20 +144,29 @@
 
 
 
+"""
+Question on Linkedlist:
+You are given two non-empty linked lists representing two non-negative integers. 
+The digits are stored in reverse order, and each of their nodes contains a single digit. 
+Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+"""
+# Solution
 
 
-
-# Define a class to represent a node in a linked list
+# # Define a class to represent a node in a linked list
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
-# Define a class for the solution
+# # Define a class for the solution
 class Solution:
     # This function takes two linked lists l1 and l2 as input and returns the sum as a linked list.
     def addTwoNumbers(self, l1, l2):
-        # Initialize a variable to keep track of any carry while adding digits.
+        # Initialize a variable to keep track of any carry or overflow while adding digits.
         # This concept is often referred to as "carry" because you're carrying a value
         # from one place to another, just like when you add numbers manually.
         carry = 0
