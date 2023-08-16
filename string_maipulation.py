@@ -113,7 +113,7 @@ class Solution:
             
         return res  # Return the length of the longest substring
 
-s = "ccaabbb"
+s = "egbowanuchiogormu"
 solution = Solution()
 output = solution.lengthOfLongestSubstringTwoDistinct(s)
 print(output)
