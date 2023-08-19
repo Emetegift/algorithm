@@ -86,65 +86,66 @@
 
 # Question on: longest substring with at most two distinct characters
 
-class Solution:
-    def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
-        charset = {}          # A dictionary to store character frequencies
-        distinct_count = 0    # Count of distinct characters
-        res = 0               # Length of the longest substring
-        l = 0                 # Left pointer of the sliding window
-        n = len(s)            # Length of the string
+# class Solution:
+#     def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
+#         charset = {}          # A dictionary to store character frequencies
+#         distinct_count = 0    # Count of distinct characters
+#         res = 0               # Length of the longest substring
+#         l = 0                 # Left pointer of the sliding window
+#         n = len(s)            # Length of the string
         
-        for r in range(n):    # Loop through characters using the right pointer (r)
-            if s[r] not in charset:
-                distinct_count += 1
-                charset[s[r]] = 0   # Initialize count for the new character
+#         for r in range(n):    # Loop through characters using the right pointer (r)
+#             if s[r] not in charset:
+#                 distinct_count += 1
+#                 charset[s[r]] = 0   # Initialize count for the new character
             
-            charset[s[r]] += 1      # Increase character count
+#             charset[s[r]] += 1      # Increase character count
             
-            # Check if there are more than two distinct characters
-            while distinct_count > 2:
-                charset[s[l]] -= 1      # Decrease count of leftmost character
-                if charset[s[l]] == 0:
-                    distinct_count -= 1  # Reduce distinct count if count becomes zero
-                    del charset[s[l]]    # Remove character from dictionary
-                l += 1                  # Move the left pointer to shrink the window
+#             # Check if there are more than two distinct characters
+#             while distinct_count > 2:
+#                 charset[s[l]] -= 1      # Decrease count of leftmost character
+#                 if charset[s[l]] == 0:
+#                     distinct_count -= 1  # Reduce distinct count if count becomes zero
+#                     del charset[s[l]]    # Remove character from dictionary
+#                 l += 1                  # Move the left pointer to shrink the window
             
-            res = max(res, r - l + 1)  # Update maximum length
+#             res = max(res, r - l + 1)  # Update maximum length
             
-        return res  # Return the length of the longest substring
+#         return res  # Return the length of the longest substring
 
-s = "egbowanuchiogormu"
-solution = Solution()
-output = solution.lengthOfLongestSubstringTwoDistinct(s)
-print(output)
+# s = "egbowanuchiogormu"
+# solution = Solution()
+# output = solution.lengthOfLongestSubstringTwoDistinct(s)
+# print(output)
 
 
 
-# QUESTION:  Longest Palindromic Substring
-class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        n = len(s)  # Length of the input string
-        dp = [[False] * n for _ in range(n)]  # Create a 2D table to store whether substrings are palindromes
-        start = 0  # Initialize the starting index of the longest palindrome substring
-        max_length = 1  # Initialize the length of the longest palindrome substring
+# # QUESTION:  Longest Palindromic Substring
+# class Solution:
+#     def longestPalindrome(self, s: str) -> str:
+#         n = len(s)  # Length of the input string
+#         dp = [[False] * n for _ in range(n)]  # Create a 2D table to store whether substrings are palindromes
+#         start = 0  # Initialize the starting index of the longest palindrome substring
+#         max_length = 1  # Initialize the length of the longest palindrome substring
         
-        # Mark single characters as palindromes (base case)
-        for i in range(n):
-            dp[i][i] = True
+#         # Mark single characters as palindromes (base case)
+#         for i in range(n):
+#             dp[i][i] = True
         
-        # Loop through all possible substring lengths
-        for length in range(2, n + 1):
-            for i in range(n - length + 1):
-                j = i + length - 1
-                # Check if characters at the two ends are the same
-                if s[i] == s[j]:
-                    # If the substring between them is a palindrome (or if it's of length 2)
-                    if length == 2 or dp[i + 1][j - 1]:
-                        dp[i][j] = True
-                        # Update the longest palindrome substring if needed
-                        if length > max_length:
-                            start = i
-                            max_length = length
+#         # Loop through all possible substring lengths
+#         for length in range(2, n + 1):
+#             for i in range(n - length + 1):
+#                 j = i + length - 1
+#                 # Check if characters at the two ends are the same
+#                 if s[i] == s[j]:
+#                     # If the substring between them is a palindrome (or if it's of length 2)
+#                     if length == 2 or dp[i + 1][j - 1]:
+#                         dp[i][j] = True
+#                         # Update the longest palindrome substring if needed
+#                         if length > max_length:
+#                             start = i
+#                             max_length = length
         
-        # Return the longest palindrome substring found
-        return s[start:start + max_length]
+#         # Return the longest palindrome substring found
+#         return s[start:start + max_length]
+
